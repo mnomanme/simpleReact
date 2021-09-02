@@ -14,8 +14,8 @@ const showUserNames = (user) => {
 
 	user.forEach((usersData) => {
 		// console.log(usersData);
-		let { name, email } = usersData;
-		let { street, suite, city } = usersData.address;
+		const { name, email } = usersData;
+		const { street, suite, city } = usersData.address;
 		lists =
 			lists +
 			`
