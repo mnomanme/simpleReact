@@ -23,6 +23,8 @@ const App = () => {
 		boxShadow: '5px 5px 10px gray',
 	};
 
+	const friends = ['Faruque', 'Noman', 'Zarin', 'Sezan', 'Sabi', 'Naeem'];
+	const subjects = ['HSC', 'CSE', 'Bangla', 'CSE-101', 'BBA', 'CSE-241'];
 	return (
 		<div className="App">
 			<header className="App-header">
@@ -37,29 +39,74 @@ const App = () => {
 				<button className="btn btn-danger">Test Button</button>
 				<br />
 				<p>Second Part</p>
-				<Person></Person>
-				<Person></Person>
-				<Person></Person>
-				<Person></Person>
+				<Person nayok="Kabila " nayika="Rokeya"></Person>
+				<Person nayok="Shuvo " nayika="Riya"></Person>
+				<Person nayok="Habu" nayika="Rehena"></Person>
+				<Person nayok="Pasha" nayika="Kahimpur"></Person>
+				<Friends friend={friends[0]} subject={subjects[0]}></Friends>
+				<Friends friend={friends[1]} subject={subjects[1]}></Friends>
+				<Friends friend={friends[2]} subject={subjects[2]}></Friends>
+				<ThatsMe myName="Mohammad Noman" job="Bekar"></ThatsMe>
+				<ThatsMe myName="Mohammad Faruque" job="Gamer"></ThatsMe>
 			</header>
 		</div>
 	);
 };
 
-const Person = () => {
+const Person = (props) => {
+	console.log(props);
 	const personStyle = {
+		color: 'magenta',
 		border: '4px solid yellow',
 		borderRadius: '10px',
 		margin: '10px',
 		padding: '10px',
+		width: '600px',
 		backgroundColor: 'cornflowerblue',
 		boxShadow: '5px 5px 10px tomato',
 	};
+	const { nayok, nayika } = props;
+
 	return (
-		<div style={personStyle}>
-			<h2>Name : Mohammad Faruque</h2>
-			<h4>Hero of the year</h4>
+		<div>
+			<div style={personStyle}>
+				<h2>What's The Dude Name: {nayok} </h2>
+				<h4>Heroine of The Year: {nayika}</h4>
+			</div>
 		</div>
+	);
+};
+
+const Friends = (props) => {
+	console.log(props);
+	const style = {
+		color: 'gold',
+		border: '4px solid green',
+		borderRadius: '10px',
+		margin: '10px',
+		padding: '10px',
+		width: '600px',
+		backgroundColor: 'lightcoral',
+		boxShadow: '5px 5px 10px white',
+	};
+
+	const { friend, subject } = props;
+
+	return (
+		<div style={style}>
+			<h3>My Friend: {friend}</h3>
+			<h5>Subject :{subject}</h5>
+		</div>
+	);
+};
+
+const ThatsMe = (props) => {
+	const { myName, job } = props;
+	return (
+		<section style={{ border: '2px solid green', margin: '10px', padding: '10px', width: '400px' }}>
+			<h4>My Name: {myName}</h4>
+			<h6>My Profession: {job}</h6>
+		</section>
 	);
 };
 
