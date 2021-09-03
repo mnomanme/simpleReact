@@ -30,6 +30,18 @@ const App = () => {
 		{ pname: 'Illustrator', price: '$60.56' },
 		{ pname: 'PDF Reader', price: '$15.55' },
 	];
+	const books = [
+		{ bname: 'Math', location: 'Mirpur-10' },
+		{ bname: 'Chemistry', location: 'Bangla Bazar' },
+		{ bname: 'Astrophysics', location: 'Nilkhet' },
+	];
+
+	friends.forEach((fr) => {
+		console.log(fr);
+	});
+
+	const booksName = books.map((book) => book);
+	console.log(booksName);
 
 	return (
 		<div className="App">
@@ -60,17 +72,43 @@ const App = () => {
 
 				<br />
 
+				<ul>
+					{friends.map((fr) => {
+						return <li>{fr}</li>;
+					})}
+					<li>{friends[0]}</li>
+				</ul>
+
+				<br />
+
 				<p>Third Part</p>
 				<Products product={products[0]}></Products>
 				<Products product={products[1]}></Products>
 				<Products product={products[2]}></Products>
+
+				<br />
+				<p>Fourth Part</p>
+
+				{books.map((bk) => {
+					return <Books book={bk}></Books>;
+				})}
+
+				<ul>
+					{books.map((bk) => {
+						return (
+							<li>
+								Name: {bk.bname} Location: {bk.location}
+							</li>
+						);
+					})}
+				</ul>
 			</header>
 		</div>
 	);
 };
 
 const Person = (props) => {
-	console.log(props);
+	// console.log(props);
 
 	const personStyle = {
 		color: 'magenta',
@@ -96,7 +134,7 @@ const Person = (props) => {
 };
 
 const Friends = (props) => {
-	console.log(props);
+	// console.log(props);
 
 	const style = {
 		color: 'gold',
@@ -141,7 +179,7 @@ const Products = (props) => {
 		marginTop: '10px',
 		padding: '10px',
 	};
-	console.log(props);
+	// console.log(props);
 
 	const { pname, price } = props.product;
 
@@ -151,6 +189,28 @@ const Products = (props) => {
 			<h6 className="mt-4">{price}</h6>
 			<button className=" mt-4 btn-sm btn-outline-warning">Buy Now</button>
 		</div>
+	);
+};
+
+const Books = (props) => {
+	const bookStyle = {
+		border: '2px solid gray',
+		borderRadius: '10px',
+		backgroundColor: 'lightsalmon',
+		height: '200px',
+		width: '200px',
+		margin: '10px',
+		marginTop: '10px',
+		padding: '10px',
+	};
+
+	const { bname, location } = props.book;
+
+	return (
+		<section style={bookStyle}>
+			<h4>{bname}</h4>
+			<h6>{location}</h6>
+		</section>
 	);
 };
 
