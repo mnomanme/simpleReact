@@ -25,10 +25,17 @@ const App = () => {
 
 	const friends = ['Faruque', 'Noman', 'Zarin', 'Sezan', 'Sabi', 'Naeem'];
 	const subjects = ['HSC', 'CSE', 'Bangla', 'CSE-101', 'BBA', 'CSE-241'];
+	const products = [
+		{ pname: 'Photoshop', price: '$90.99' },
+		{ pname: 'Illustrator', price: '$60.56' },
+		{ pname: 'PDF Reader', price: '$15.55' },
+	];
+
 	return (
 		<div className="App">
 			<header className="App-header">
 				<img src={logo} className="App-logo" alt="logo" />
+
 				<h1>React Core Concepts</h1>
 				<p>First Part</p>
 				<h5 className="" style={style}>
@@ -37,7 +44,9 @@ const App = () => {
 				<h6 style={{ backgroundColor: 'lightsalmon', padding: '5px' }}>Book: {sub + ' ' + price}</h6>
 				<p>Sum: {(10 + 20) * 40 - 500}</p>
 				<button className="btn btn-danger">Test Button</button>
+
 				<br />
+
 				<p>Second Part</p>
 				<Person nayok="Kabila " nayika="Rokeya"></Person>
 				<Person nayok="Shuvo " nayika="Riya"></Person>
@@ -48,6 +57,13 @@ const App = () => {
 				<Friends friend={friends[2]} subject={subjects[2]}></Friends>
 				<ThatsMe myName="Mohammad Noman" job="Bekar"></ThatsMe>
 				<ThatsMe myName="Mohammad Faruque" job="Gamer"></ThatsMe>
+
+				<br />
+
+				<p>Third Part</p>
+				<Products product={products[0]}></Products>
+				<Products product={products[1]}></Products>
+				<Products product={products[2]}></Products>
 			</header>
 		</div>
 	);
@@ -55,6 +71,7 @@ const App = () => {
 
 const Person = (props) => {
 	console.log(props);
+
 	const personStyle = {
 		color: 'magenta',
 		border: '4px solid yellow',
@@ -65,6 +82,7 @@ const Person = (props) => {
 		backgroundColor: 'cornflowerblue',
 		boxShadow: '5px 5px 10px tomato',
 	};
+
 	const { nayok, nayika } = props;
 
 	return (
@@ -79,6 +97,7 @@ const Person = (props) => {
 
 const Friends = (props) => {
 	console.log(props);
+
 	const style = {
 		color: 'gold',
 		border: '4px solid green',
@@ -102,11 +121,36 @@ const Friends = (props) => {
 
 const ThatsMe = (props) => {
 	const { myName, job } = props;
+
 	return (
 		<section style={{ border: '2px solid green', margin: '10px', padding: '10px', width: '400px' }}>
 			<h4>My Name: {myName}</h4>
 			<h6>My Profession: {job}</h6>
 		</section>
+	);
+};
+
+const Products = (props) => {
+	const productStyle = {
+		border: '2px solid gray',
+		borderRadius: '10px',
+		backgroundColor: 'lightgray',
+		height: '200px',
+		width: '200px',
+		margin: '10px',
+		marginTop: '10px',
+		padding: '10px',
+	};
+	console.log(props);
+
+	const { pname, price } = props.product;
+
+	return (
+		<div style={productStyle}>
+			<h3 className="mt-3"> {pname} </h3>
+			<h6 className="mt-4">{price}</h6>
+			<button className=" mt-4 btn-sm btn-outline-warning">Buy Now</button>
+		</div>
 	);
 };
 
