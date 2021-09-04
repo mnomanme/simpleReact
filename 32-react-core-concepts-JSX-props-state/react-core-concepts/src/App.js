@@ -1,7 +1,7 @@
 import logo from './logo.svg';
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
 const App = () => {
 	const person = {
@@ -51,6 +51,10 @@ const App = () => {
 
 				<h1>React Core Concepts</h1>
 				<Counter />
+				<Users />
+
+				<br />
+
 				<p>First Part</p>
 				<h5 className="" style={style}>
 					{name + ' ' + job}
@@ -135,6 +139,26 @@ const Counter = () => {
 			<button onClick={handleIncrease} className="btn btn-info m-2">
 				Increase
 			</button>
+		</section>
+	);
+};
+
+const Users = () => {
+	const [users, setUsers] = useState(0);
+
+	useEffect(() => {
+		fetch(`https://jsonplaceholder.typicode.com/users`)
+			.then((res) => res.json())
+			.then((data) => setUsers(data));
+	}, []);
+
+	return (
+		<section>
+			<h3>Dynamic Users: {users.length}</h3>
+			{console.log(users)}
+			{users.map((user) => {
+				return <li>{user.name}</li>;
+			})}
 		</section>
 	);
 };
