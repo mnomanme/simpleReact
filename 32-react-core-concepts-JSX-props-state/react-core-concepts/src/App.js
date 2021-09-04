@@ -1,6 +1,7 @@
 import logo from './logo.svg';
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import React, { useState } from 'react';
 
 const App = () => {
 	const person = {
@@ -49,6 +50,7 @@ const App = () => {
 				<img src={logo} className="App-logo" alt="logo" />
 
 				<h1>React Core Concepts</h1>
+				<Counter />
 				<p>First Part</p>
 				<h5 className="" style={style}>
 					{name + ' ' + job}
@@ -104,6 +106,16 @@ const App = () => {
 				</ul>
 			</header>
 		</div>
+	);
+};
+
+const Counter = () => {
+	const [count, setCount] = useState(100);
+
+	return (
+		<section>
+			<h1 style={{ color: 'green' }}>Count :{count}</h1>
+		</section>
 	);
 };
 
