@@ -110,11 +110,31 @@ const App = () => {
 };
 
 const Counter = () => {
-	const [count, setCount] = useState(100);
+	const [count, setCount] = useState(5);
+	const handleIncrease = () => {
+		const newCount = count + 1;
+		setCount(newCount);
+		setCount(count + 1);
+	};
+
+	const handleDecrease = () => {
+		// const newCount = count - 1;
+		if (count === 0) {
+			return;
+		} else {
+			setCount(count - 1);
+		}
+	};
 
 	return (
 		<section>
 			<h1 style={{ color: 'green' }}>Count :{count}</h1>
+			<button onClick={handleDecrease} className="btn btn-info m-2">
+				Decrease
+			</button>
+			<button onClick={handleIncrease} className="btn btn-info m-2">
+				Increase
+			</button>
 		</section>
 	);
 };
