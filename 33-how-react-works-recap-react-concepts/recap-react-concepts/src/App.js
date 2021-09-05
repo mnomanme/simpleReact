@@ -1,13 +1,13 @@
 import './App.css';
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
-import Works from './Works';
+import Layout from './Layout';
 
 function App() {
 	return (
 		<section>
 			<h2>Hello React</h2>
 			<div>
-				<Works />
+				<Layout />
 			</div>
 		</section>
 	);
