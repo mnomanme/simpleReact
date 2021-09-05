@@ -144,7 +144,7 @@ const Counter = () => {
 };
 
 const Users = () => {
-	const [users, setUsers] = useState(0);
+	const [users, setUsers] = useState([]);
 
 	useEffect(() => {
 		fetch(`https://jsonplaceholder.typicode.com/users`)
@@ -155,10 +155,12 @@ const Users = () => {
 	return (
 		<section>
 			<h3>Dynamic Users: {users.length}</h3>
-			{console.log(users)}
-			{users.map((user) => {
-				return <li>{user.name}</li>;
-			})}
+			{/* {console.log(users)} */}
+			<ul>
+				{users.map((user) => (
+					<li>{user.name}</li>
+				))}
+			</ul>
 		</section>
 	);
 };
