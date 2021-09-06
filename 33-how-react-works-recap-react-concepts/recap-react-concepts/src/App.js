@@ -5,7 +5,7 @@ import Layout from './Layout';
 function App() {
 	return (
 		<section>
-			<h2>Hello React</h2>
+			<h2 className="text-center">Hello React</h2>
 			<div>
 				<Layout />
 			</div>
