@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import Books from './Books';
 import MovieDisplay from './MovieDisplay';
 
 const MovieCounter = () => {
@@ -34,6 +35,7 @@ const MovieCounter = () => {
 			<MovieDisplay movies={count + 3}></MovieDisplay>
 			<MovieDisplay movies={count + 5}></MovieDisplay>
 			<MovieDisplay movies={count + 10}></MovieDisplay>
+			<Books />
 		</div>
 	);
 };
