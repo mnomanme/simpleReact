@@ -1,14 +1,6 @@
 import React, { useEffect, useState } from 'react';
 
 const RandomUser = () => {
-	return (
-		<div>
-			<ShowUser></ShowUser>
-		</div>
-	);
-};
-
-const ShowUser = () => {
 	const [state, setState] = useState([]);
 
 	useEffect(() => {
@@ -30,24 +22,34 @@ const ShowUser = () => {
 		fetchData();
 	}, []);
 
+	return (
+		<div>
+			{state.map((user) => {
+				const { title, first, last } = user.name;
+				const { email } = user;
+
+				return (
+					<>
+						<ShowUser name={title + ' ' + first + ' ' + last} email={email}></ShowUser>
+					</>
+				);
+			})}
+		</div>
+	);
+};
+
+const ShowUser = (props) => {
 	const stateStyle = {
 		backgroundColor: 'lightgray',
 		border: '3px solid crimson',
 		borderRadius: '10px',
 		margin: '10px',
 	};
-
+	const { name, email } = props;
 	return (
 		<section style={stateStyle}>
-			<h2 style={{ color: 'green' }}>Random User</h2>
-			{state.map((user) => (
-				<>
-					<h3>
-						Hello {user.name.title} {user.name.first} {user.name.last}
-					</h3>
-					<h5>Email me: {user.email}</h5>
-				</>
-			))}
+			<h2>Hello {name}</h2>
+			<h5>Email me: {email}</h5>
 		</section>
 	);
 };
