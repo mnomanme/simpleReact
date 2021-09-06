@@ -21,7 +21,7 @@ const ShowUser = () => {
 			try {
 				const res = await fetch(url);
 				const data = await res.json();
-				console.log(data.results);
+				// console.log(data.results);
 				setState(data.results);
 			} catch (error) {
 				console.log(error);
