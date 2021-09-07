@@ -21,17 +21,20 @@ const ShopData = () => {
 	const [products, setProducts] = useState(firstTen);
 
 	return (
-		<div>
-			<h3>{products.length}</h3>
-			<section>
+		<div className="shopContainer">
+			<section className="productContainer">
+				<h3>Total Product: {products.length}</h3>
 				{products.map((pd) => {
 					const { name, key } = pd;
 					return (
 						<section key={key}>
-							<h6>{name.slice(0, 50)}</h6>
+							<h6 className="productName">{name}</h6>
 						</section>
 					);
 				})}
+			</section>
+			<section className="cartContainer">
+				<h4>This is Cart: </h4>
 			</section>
 		</div>
 	);
