@@ -1,11 +1,12 @@
 import './App.css';
+import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 
-function App() {
+const App = () => {
 	return (
 		<div className="App">
 			<h2>Hello React</h2>
 		</div>
 	);
-}
+};
 
 export default App;
