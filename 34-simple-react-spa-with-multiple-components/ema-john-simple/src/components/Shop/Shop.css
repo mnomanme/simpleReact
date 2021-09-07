@@ -4,11 +4,9 @@
 
 .productContainer {
 	width: 70%;
-	color: #002333;
 	text-align: justify;
 	padding-right: 10px;
 	border-right: 1px solid lightsalmon;
-	border-bottom: 1px solid lightsalmon;
 }
 
 .cartContainer {
