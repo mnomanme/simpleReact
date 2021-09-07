@@ -21,8 +21,12 @@ const ShopData = () => {
 	// console.log(firstTen);
 	const [products, setProducts] = useState(firstTen);
 
+	const [cart, setCart] = useState([]);
+
 	const handleAddProduct = (pd) => {
 		console.log('add product', pd);
+		const newCart = [...cart, pd];
+		setCart(newCart);
 	};
 
 	return (
@@ -34,8 +38,10 @@ const ShopData = () => {
 					return <Product key={key} product={pd} handleAddProduct={handleAddProduct} />;
 				})}
 			</section>
+
 			<section className="cartContainer">
 				<h4>This is Cart: </h4>
+				<h5>Order Summary {cart.length}</h5>
 			</section>
 		</div>
 	);
