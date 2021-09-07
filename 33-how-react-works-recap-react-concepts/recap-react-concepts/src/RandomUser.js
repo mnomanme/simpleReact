@@ -26,12 +26,12 @@ const RandomUser = () => {
 		<div>
 			{state.map((user) => {
 				const { title, first, last } = user.name;
-				const { email } = user;
+				const { email, cell } = user;
 
 				return (
-					<>
+					<section key={cell}>
 						<ShowUser name={title + ' ' + first + ' ' + last} email={email}></ShowUser>
-					</>
+					</section>
 				);
 			})}
 		</div>

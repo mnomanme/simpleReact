@@ -41,12 +41,12 @@ const ShowUser = () => {
 		<section style={stateStyle}>
 			<h2 style={{ color: 'green' }}>Random User</h2>
 			{state.map((user) => (
-				<>
+				<section key={user.cell}>
 					<h3>
 						Hello {user.name.title} {user.name.first} {user.name.last}
 					</h3>
 					<h5>Email me: {user.email}</h5>
-				</>
+				</section>
 			))}
 		</section>
 	);

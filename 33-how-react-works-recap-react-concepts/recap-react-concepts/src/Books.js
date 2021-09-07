@@ -4,7 +4,7 @@ const Books = () => {
 	const books = [
 		{ id: 101, name: 'Math' },
 		{ id: 201, name: 'Data Structure' },
-		{ id: '301', name: 'Theory of Computation' },
+		{ id: 301, name: 'Theory of Computation' },
 	];
 
 	const bookStyles = {
@@ -20,10 +20,10 @@ const Books = () => {
 			{books.map((bk) => {
 				const { id, name } = bk;
 				return (
-					<>
+					<section key={id}>
 						<h5 style={{ color: 'gold' }}>Book Name: {name}</h5>
 						<h6>Book Id: {id}</h6>
-					</>
+					</section>
 				);
 			})}
 		</div>

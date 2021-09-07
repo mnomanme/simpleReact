@@ -5,7 +5,11 @@ const Friends = () => {
 	return (
 		<div>
 			{friends.map((fr) => {
-				return <h6 style={{ backgroundColor: 'aqua', margin: '10px' }}>My friend name is: {fr}</h6>;
+				return (
+					<h6 key={fr} style={{ backgroundColor: 'aqua', margin: '10px' }}>
+						My friend name is: {fr}
+					</h6>
+				);
 			})}
 		</div>
 	);
