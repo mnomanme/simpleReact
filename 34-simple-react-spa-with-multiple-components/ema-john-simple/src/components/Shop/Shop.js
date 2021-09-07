@@ -3,6 +3,7 @@ import fakeData from '../../resources/fakeData';
 import { Container } from 'react-bootstrap';
 import './Shop.css';
 import Product from '../Product/Product';
+import Cart from '../Cart/Cart';
 
 const Shop = () => {
 	// console.log(fakeData);
@@ -24,7 +25,7 @@ const ShopData = () => {
 	const [cart, setCart] = useState([]);
 
 	const handleAddProduct = (pd) => {
-		console.log('add product', pd);
+		// console.log('add product', pd);
 		const newCart = [...cart, pd];
 		setCart(newCart);
 	};
@@ -40,8 +41,7 @@ const ShopData = () => {
 			</section>
 
 			<section className="cartContainer">
-				<h4>This is Cart: </h4>
-				<h5>Order Summary {cart.length}</h5>
+				<Cart cart={cart} />
 			</section>
 		</div>
 	);
