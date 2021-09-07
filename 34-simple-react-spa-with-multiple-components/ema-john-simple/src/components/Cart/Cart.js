@@ -4,7 +4,7 @@ import './Cart.css';
 
 const Cart = (props) => {
 	const cart = props.cart;
-	console.log(cart);
+	// console.log(cart);
 
 	// const totalPrice = cart.reduce((total, product) => total + product.price, 0);
 	let total = 0;
