@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import fakeData from '../../resources/fakeData';
 import { Container } from 'react-bootstrap';
 import './Shop.css';
+import Product from '../Product/Product';
 
 const Shop = () => {
 	// console.log(fakeData);
@@ -17,7 +18,7 @@ const Shop = () => {
 // get shop data from fakedata
 const ShopData = () => {
 	const firstTen = fakeData.slice(50, 55);
-	console.log(firstTen);
+	// console.log(firstTen);
 	const [products, setProducts] = useState(firstTen);
 
 	return (
@@ -25,12 +26,9 @@ const ShopData = () => {
 			<section className="productContainer">
 				<h3>Total Product: {products.length}</h3>
 				{products.map((pd) => {
-					const { name, key } = pd;
-					return (
-						<section key={key}>
-							<h6 className="productName">{name}</h6>
-						</section>
-					);
+					const { key } = pd;
+
+					return <Product key={key} product={pd} />;
 				})}
 			</section>
 			<section className="cartContainer">
