@@ -1,9 +1,12 @@
 import React from 'react';
+import { Button } from 'react-bootstrap';
 import './Product.css';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faShoppingCart } from '@fortawesome/free-solid-svg-icons';
 
 const Product = (props) => {
 	console.log(props.product);
-	const { name, seller, stock, category, img, price, shipping } = props.product;
+	const { name, seller, stock, img, price } = props.product;
 	return (
 		<section className="product">
 			<div className="itemsPhoto">
@@ -18,6 +21,9 @@ const Product = (props) => {
 				<p>
 					<small>Only {stock} left in stock - Order Soon</small>
 				</p>
+				<Button variant="outline-warning" size="md-lg">
+					<FontAwesomeIcon icon={faShoppingCart} /> add to cart
+				</Button>
 			</div>
 		</section>
 	);
