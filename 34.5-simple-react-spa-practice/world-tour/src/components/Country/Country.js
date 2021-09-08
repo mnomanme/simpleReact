@@ -1,4 +1,6 @@
 import React, { useEffect, useState } from 'react';
+import { Card, CardGroup, Container, Row } from 'react-bootstrap';
+import './Country.css';
 
 const Country = () => {
 	return (
@@ -29,22 +31,26 @@ const CountryState = () => {
 	}, []);
 
 	return (
-		<section>
+		<Container>
 			<h2>Country Load: {countries.length}</h2>
-
-			<div>
+			<Row xs={1} md={2} className="g-4 ">
 				{countries.map((country) => {
-					const { name, alpha3Code } = country;
+					const { name, flag, alpha3Code } = country;
+					// console.log(name);
 					return (
-						<section key={alpha3Code}>
-							<small>
-								<strong>{name}</strong>
-							</small>
-						</section>
+						<CardGroup className="cardGroup" key={alpha3Code}>
+							<Card className="cardHover">
+								<Card.Img variant="top" src={flag} />
+								<Card.Body>
+									<Card.Title>{name}</Card.Title>
+									<Card.Text>This is a wider card</Card.Text>
+								</Card.Body>
+							</Card>
+						</CardGroup>
 					);
 				})}
-			</div>
-		</section>
+			</Row>
+		</Container>
 	);
 };
 
