@@ -19,7 +19,7 @@ const CountryState = () => {
 			try {
 				const res = await fetch(url);
 				const data = await res.json();
-				console.log(data);
+				// console.log(data);
 				setCountries(data);
 			} catch (error) {
 				console.log(error);
@@ -30,7 +30,20 @@ const CountryState = () => {
 
 	return (
 		<section>
-			<h2>Country Load: {countries.length}</h2>;
+			<h2>Country Load: {countries.length}</h2>
+
+			<div>
+				{countries.map((country) => {
+					const { name, alpha3Code } = country;
+					return (
+						<section key={alpha3Code}>
+							<small>
+								<strong>{name}</strong>
+							</small>
+						</section>
+					);
+				})}
+			</div>
 		</section>
 	);
 };
