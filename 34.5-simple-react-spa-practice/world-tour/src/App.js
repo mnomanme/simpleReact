@@ -1,11 +1,12 @@
 import './App.css';
+import Layouts from './components/Layouts/Layouts';
 
-function App() {
+const App = () => {
 	return (
 		<div className="App">
-			<h2>Hello World Tour</h2>
+			<Layouts />
 		</div>
 	);
-}
+};
 
 export default App;
