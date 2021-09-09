@@ -3,7 +3,7 @@ import React from 'react';
 const CountryCount = (props) => {
 	// console.log('new', props.country);
 	const addCountry = props.country;
-	console.log('add', addCountry);
+	// console.log('add', addCountry);
 
 	// let totalPopulation = 0;
 
