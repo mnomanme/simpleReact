@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Button, Card, CardGroup, Container, Row } from 'react-bootstrap';
+import CountryCount from '../CountryCount/CountryCount';
 
 const CountryState = (props) => {
 	const [countries, setCountries] = useState([]);
@@ -12,7 +13,7 @@ const CountryState = (props) => {
 			try {
 				const res = await fetch(url);
 				const data = await res.json();
-				console.log(data);
+				// console.log(data);
 				setCountries(data);
 			} catch (error) {
 				console.log(error);
@@ -21,11 +22,19 @@ const CountryState = (props) => {
 		fetchData();
 	}, []);
 
-	const handleCountryAdd = props.handleCountryAdd;
+	const [addCountry, setCountry] = useState([]);
+
+	const handleCountryAdd = (country) => {
+		// console.log('add country', country);
+		const newCountry = [...addCountry, country];
+		setCountry(newCountry);
+	};
 
 	return (
 		<Container>
 			<h2>Country Load: {countries.length}</h2>
+			<h4>Country Added: {addCountry.length}</h4>
+			<CountryCount country={addCountry} />
 			<Row xs={1} md={2} className="g-4 ">
 				{countries.map((country) => {
 					const { name, flag, alpha3Code, population, region, capital } = country;
@@ -45,7 +54,7 @@ const CountryState = (props) => {
 										<small>Language: {nativeName}</small>
 									</Card>
 								</Card.Body>
-								<Button onClick={() => handleCountryAdd(name)} className="btn btn-info">
+								<Button onClick={() => handleCountryAdd(country)} className="btn btn-info">
 									Add Country
 								</Button>
 							</Card>
