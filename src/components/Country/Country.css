@@ -1,0 +1,7 @@
+/* .cardGroup {
+	cursor: pointer;
+} */
+.cardHover:hover {
+	background-color: burlywood;
+	border-radius: 5px;
+}
