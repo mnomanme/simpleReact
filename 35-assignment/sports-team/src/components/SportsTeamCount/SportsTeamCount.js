@@ -9,10 +9,11 @@ const SportsTeamCount = (props) => {
 	return (
 		<div>
 			{addPlayer.map((team) => {
-				console.log('name', team);
-				const { first_name, last_name, salary, id } = team;
+				// console.log('name', team);
+				const { first_name, last_name, salary, id, playerPhoto } = team;
 				return (
 					<section key={id}>
+						<img src={playerPhoto} alt="" className="rounded-circle" style={{ height: '200px' }} />
 						<h5>
 							Name: {first_name} {` `}
 							{last_name} Demand: {`$`}
