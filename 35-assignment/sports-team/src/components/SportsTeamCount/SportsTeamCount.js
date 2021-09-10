@@ -14,7 +14,7 @@ const SportsTeamCount = (props) => {
 				return (
 					<section key={id}>
 						<h5>
-							Name: {first_name} {}
+							Name: {first_name} {` `}
 							{last_name} Demand: {`$`}
 							{salary} {`million`}
 						</h5>
@@ -22,7 +22,7 @@ const SportsTeamCount = (props) => {
 				);
 			})}
 			<h4>
-				Total Player Salary:{`$`}
+				Total Player Salary: {`$`}
 				{playerTotalSalary} {`million`}
 			</h4>
 		</div>
