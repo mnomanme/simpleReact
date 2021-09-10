@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import SportsData from '../../resources/FakeSportsData/SportsData';
 import { Card, CardGroup, Row, Button } from 'react-bootstrap';
 import SportsTeamCount from '../SportsTeamCount/SportsTeamCount';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faCertificate, faIdBadge } from '@fortawesome/free-solid-svg-icons';
 
 const SportsState = () => {
 	// console.log(SportsData);
@@ -22,7 +24,7 @@ const TeamData = () => {
 	const [player, setPlayer] = useState([]);
 
 	const handleAddPlayer = (addPlayer) => {
-		console.log('add player', addPlayer);
+		// console.log('add player', addPlayer);
 		const newPlayer = [...player, addPlayer];
 		setPlayer(newPlayer);
 	};
@@ -44,7 +46,8 @@ const TeamData = () => {
 								<Card.Body className="text-center">
 									<Card.Title>
 										{first_name}
-										{last_name}
+										{last_name} {`	`}
+										<FontAwesomeIcon icon={faCertificate} />
 									</Card.Title>
 									<Card>
 										<small>Position: {position} </small>
@@ -58,7 +61,7 @@ const TeamData = () => {
 									</Card>
 								</Card.Body>
 								<Button onClick={() => handleAddPlayer(player)} variant="info">
-									Add Player
+									<FontAwesomeIcon icon={faIdBadge} /> Add Player
 								</Button>
 							</Card>
 						</CardGroup>
