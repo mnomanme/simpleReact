@@ -6,9 +6,6 @@ import Layout from './components/Layout/Layout';
 const App = () => {
 	return (
 		<Container>
-			<section className="App bg-info">
-				<h2>Hello Sports Team</h2>
-			</section>
 			<Layout />
 		</Container>
 	);
