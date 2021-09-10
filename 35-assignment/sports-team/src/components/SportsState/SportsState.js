@@ -1,15 +1,13 @@
 import React, { useState } from 'react';
 import SportsData from '../../resources/FakeSportsData/SportsData';
 import { Card, CardGroup, Row, Button } from 'react-bootstrap';
+import SportsTeamCount from '../SportsTeamCount/SportsTeamCount';
 
 const SportsState = () => {
 	// console.log(SportsData);
 
 	return (
 		<>
-			<section className="bg-warning">
-				<h2>Sports State</h2>
-			</section>
 			<TeamData />
 		</>
 	);
@@ -17,7 +15,7 @@ const SportsState = () => {
 
 const TeamData = () => {
 	const teamSports = SportsData;
-	console.log(teamSports);
+	// console.log(teamSports);
 
 	const [team, setTeam] = useState(teamSports);
 
@@ -31,25 +29,35 @@ const TeamData = () => {
 
 	return (
 		<section>
-			<div className="bg-danger text-center">
-				<h2>Team Load: {teamSports.length}</h2>
+			<div className="bg-info text-center">
+				<h2>Total Sports Team: {teamSports.length}</h2>
 				<h4>Add Team: {player.length}</h4>
+				<SportsTeamCount player={player} />
 			</div>
 			<Row xs={1} md={2} className="g-4 ">
-				{team.map((t) => {
-					const { first_name, last_name, playerPhoto, id } = t;
+				{team.map((player) => {
+					const { first_name, last_name, playerPhoto, id, position, dateOfBirth, salary } = player;
 					return (
 						<CardGroup key={id}>
 							<Card>
 								<Card.Img variant="top" src={playerPhoto} style={{ height: '400px' }} />
-								<Card.Body>
+								<Card.Body className="text-center">
 									<Card.Title>
 										{first_name}
 										{last_name}
 									</Card.Title>
-									<Card.Text>This is a wider card with supporting text below </Card.Text>
+									<Card>
+										<small>Position: {position} </small>
+										<small>Date of Birth: {dateOfBirth} </small>
+										<small>
+											Salary: {`$`}
+											{salary}
+											{` `}
+											{`million`}
+										</small>
+									</Card>
 								</Card.Body>
-								<Button onClick={() => handleAddPlayer(first_name)} variant="info">
+								<Button onClick={() => handleAddPlayer(player)} variant="info">
 									Add Player
 								</Button>
 							</Card>
