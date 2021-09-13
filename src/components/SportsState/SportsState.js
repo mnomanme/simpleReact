@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import SportsData from '../../resources/FakeSportsData/SportsData';
 import { Card, CardGroup, Row, Button } from 'react-bootstrap';
 import SportsTeamCount from '../SportsTeamCount/SportsTeamCount';
@@ -16,12 +16,15 @@ const SportsState = () => {
 };
 
 const TeamData = () => {
-	const teamSports = SportsData;
+	// const teamSports = SportsData;
 	// console.log(teamSports);
 
-	const [team, setTeam] = useState(teamSports);
-
+	const [team, setTeam] = useState([]);
 	const [player, setPlayer] = useState([]);
+
+	useEffect(() => {
+		setTeam(SportsData);
+	}, []);
 
 	const handleAddPlayer = (addPlayer) => {
 		// console.log('add player', addPlayer);
@@ -32,7 +35,7 @@ const TeamData = () => {
 	return (
 		<section>
 			<div className="bg-info text-center">
-				<h2>Total Sports Team: {teamSports.length}</h2>
+				<h2>Total Sports Team: {SportsData.length}</h2>
 				<h4>Add Team: {player.length}</h4>
 				<SportsTeamCount player={player} />
 			</div>
